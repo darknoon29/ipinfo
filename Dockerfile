@@ -1,11 +1,8 @@
 # Use the official Node.js image as the base image
-FROM node:23.2.0-alpine
+FROM node:22-alpine
 
 # Set the environment to production
 ENV NODE_ENV=production
-
-# Install OpenSSL
-RUN apk add --no-cache openssl
 
 # Create and change to the app directory
 WORKDIR /usr/src/app
@@ -19,8 +16,7 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Expose ports 443 (HTTPS) and 1433
-EXPOSE 443
+# Expose 1433
 EXPOSE 1433
 
 # Start the Node.js server
