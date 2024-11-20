@@ -26,4 +26,4 @@ jobs:
         context: .
         platforms: linux/amd64
         push: true
-        tags: ipinfo:latest
+        tags: srelabcr.azurecr.io/ipinfo:latest
