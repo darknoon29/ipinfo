@@ -6,7 +6,6 @@ const fs = require('fs');
 const port = 1433;
 
 // Create HTTP server for port 1433
-const app = express();
 app.get('/', (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
     if (ip.includes(':')) {
