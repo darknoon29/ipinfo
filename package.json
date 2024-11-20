@@ -1,0 +1,14 @@
+{
+    "name": "my-public-ip",
+    "version": "1.0.0",
+    "description": "A Node.js server that listens on HTTPS and port 1433",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1"
+    },
+    "author": "",
+    "license": ""
+  }
