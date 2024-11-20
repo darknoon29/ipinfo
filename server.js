@@ -5,18 +5,16 @@ const fs = require('fs');
 
 const port = 1433;
 
+// Create HTTP server for port 1433
+const app = express();
 app.get('/', (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-  res.send(`Your public IP is: ${ip}`);
+    if (ip.includes(':')) {
+    ip = ip.split(',').find(ip => ip.includes('.'));
+  }
+  res.send(`${ip}`);
 });
 
-// Create HTTP server for port 1433
-const app2 = express();
-app2.get('/', (req, res) => {
-  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-  res.send(`Your public IP is: ${ip}`);
-});
-
-app2.listen(port, () => {
+app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
