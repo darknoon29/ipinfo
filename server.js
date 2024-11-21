@@ -7,7 +7,7 @@ const port = 1433;
 
 // Create HTTP server for port 1433
 app.get('/', (req, res) => {
-  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+  let ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
     if (ip.includes(':')) {
     ip = ip.split(',').find(ip => ip.includes('.'));
   }
